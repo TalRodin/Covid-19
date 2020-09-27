@@ -24,27 +24,28 @@ function App() {
   const [casesType, setCasesType] = useState("cases")
   const [darkMode, setDarkMode] = useState(false)
   const [seconds, setSeconds] = useState(0);
-  // useEffect(()=>{
+  useEffect(()=>{
     
-  //   fetch(`https://disease.sh/v3/covid-19/all`)
-  //   .then(response=>response.json())
-  //   .then(data=>{
-  //     setCountryInfo(data)
-  //   })
-  // },[])
- 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      
-      fetch(`https://disease.sh/v3/covid-19/all`)
+    fetch(`https://disease.sh/v3/covid-19/all`)
     .then(response=>response.json())
     .then(data=>{
       setCountryInfo(data)
       console.log(data)
     })
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  },[])
+ 
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+      
+  //     fetch(`https://disease.sh/v3/covid-19/all`)
+  //   .then(response=>response.json())
+  //   .then(data=>{
+  //     setCountryInfo(data)
+  //     console.log(data)
+  //   })
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   useEffect(()=>{
     const getCountriesData = async()=>{
