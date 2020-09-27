@@ -3,6 +3,11 @@
     overflow: scroll;
     height: 400px;
     background-color: transparent;
+    color:#444;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding:5px;
+
 }
 
 .table tr{
@@ -15,5 +20,5 @@
 }
 
 .table tr:nth-of-type(odd){
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: rgba(238,238,238,0.5);
 }

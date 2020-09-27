@@ -8,6 +8,7 @@ import LineGraph from './LineGraph'
 import {sortData,prettyPrintStat} from "./util"
 import "leaflet/dist/leaflet.css"
 import {ThemeProvider, createMuiTheme} from '@material-ui/core/styles'
+import PieChart from './PieChart/PieChart'
 
 
 
@@ -22,16 +23,28 @@ function App() {
   const [mapCountries, setMapCountries] = useState([])
   const [casesType, setCasesType] = useState("cases")
   const [darkMode, setDarkMode] = useState(false)
-
-  useEffect(()=>{
-    fetch(`https://disease.sh/v3/covid-19/all`)
+  const [seconds, setSeconds] = useState(0);
+  // useEffect(()=>{
+    
+  //   fetch(`https://disease.sh/v3/covid-19/all`)
+  //   .then(response=>response.json())
+  //   .then(data=>{
+  //     setCountryInfo(data)
+  //   })
+  // },[])
+ 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      
+      fetch(`https://disease.sh/v3/covid-19/all`)
     .then(response=>response.json())
     .then(data=>{
       setCountryInfo(data)
+      console.log(data)
     })
-  },[])
-
-
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(()=>{
     const getCountriesData = async()=>{
@@ -74,16 +87,16 @@ function App() {
 
   const theme = createMuiTheme({
     palette:{
-      type:darkMode?'dark':'light',
+      type:darkMode?'dark':'light'
+      
     }
   })
   return (
     <ThemeProvider theme={theme}>
-    <Paper  style={{height: "120vh"  }}>
-   
-    <div className="app">
-      
+    <Paper  style={{height: "240vh"  }}>
     
+    <div className="app">
+      <div className='app_first_row'>
       <div className="app__left">
       <Switch 
       defaultChecked
@@ -91,6 +104,7 @@ function App() {
       inputProps={{ 'aria-label': 'checkbox with default color' }}
       onChange={()=>setDarkMode(!darkMode)}
       />
+     
         <div className = "app__header">
                 <h1>COVID-19 TRACKER</h1>
                 <FormControl className="app__dropdown">
@@ -109,7 +123,7 @@ function App() {
           </div>
           <div className="app_stats">
         <InfoBox 
-        isRed
+        colorR='#5371f9'
         active = {casesType ==="cases"}
         onClick={e=>setCasesType('cases')}
         title="Coronavirus Cases" 
@@ -130,6 +144,7 @@ function App() {
       center={mapCenter}
       zoom={mapZoom}
       />
+      
       </div>
       <Card className="app__right">
           <CardContent >
@@ -139,7 +154,14 @@ function App() {
             <LineGraph className="app_graph" casesType={casesType}/>
           </CardContent>
       </Card>
+      </div>
+      <Card className="app__bottom__left">
+         <PieChart data={countryInfo.todayCases}/>
+      </Card>
     </div>
+      
+      
+     
     </Paper>
     </ThemeProvider>
   );

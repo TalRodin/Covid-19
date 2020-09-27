@@ -5,15 +5,15 @@ import { CardContent } from "@material-ui/core"
 
 const casesTypeColors ={
     cases:{
-        hex: "red",
+        hex: "#5371f9",
         multiplier:800
     },
     recovered:{
-        hex: "green",
+        hex: "#68c19d",
         multiplier:1200
     },
     deaths:{
-        hex: "blue",
+        hex: "#ff7b89",
         multiplier:2000
     }
 }
@@ -30,8 +30,9 @@ export const prettyPrintStat = (stat) =>
 export const showDataOnMap = (data, casesType = 'cases') =>(
     data.map(country=>(
         <Circle
+        weight={1}
         center={[country.countryInfo.lat,country.countryInfo.long]}
-        fillOpacity={0.4}
+        fillOpacity={0.3}
         color={casesTypeColors[casesType].hex}
         fillColor={casesTypeColors[casesType].hex}
         radius={
