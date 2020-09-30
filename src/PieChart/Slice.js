@@ -29,6 +29,8 @@ class Slice extends React.Component {
       padAngle,
       ...props
     } = this.props;
+
+    console.log(this.props)
     if (this.state.isHovered) {
       outerRadius *= 1.05;
     }
@@ -50,7 +52,10 @@ class Slice extends React.Component {
           font-size="10px"
         >
           {this.props.label}
+        
+          {/* {this.props.value.data} */}
         </text>
+       
        
       </g>
     );

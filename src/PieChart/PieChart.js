@@ -1,21 +1,19 @@
 import React, {useState,useEffect} from 'react';
 import Pie from './Pie';
+import './PieChart.css'
 
 function ChartLine() {
   const [data_, setData]= useState({})
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      
+  useEffect(()=>{
+    
     fetch(`https://disease.sh/v3/covid-19/all`)
     .then(response=>response.json())
     .then(data=>{
       setData(data)
       console.log(data)
     })
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  },[])
 
 
 
@@ -31,7 +29,8 @@ function ChartLine() {
         let y = height/2;
         return (
           <div>
-            <svg width='600' height='600' viewBox="0 -100 500 900" >
+            <h3 className='pie'>Worldwide Cases, Recovered, Deaths</h3>
+            <svg width='400' height='400' viewBox="100 -100 500 700" >
               <Pie x={x} y={y} 
                 radius={radius} 
                 innerRadius={radius * 0.5}

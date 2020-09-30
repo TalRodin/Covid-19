@@ -34,9 +34,10 @@ body{
 .app_first_row{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: transparent;
   padding: 20px;
+  margin:10px;
 }
 .app__dropdown{
   background-color: transparent;
@@ -69,9 +70,9 @@ body{
   display:flex;
   flex-direction: row;
   height: 500px;
-  width: auto;
-  margin-left: 40px;
-  margin-right: 40px;
+  width: 430px;
+  /* margin-left: 40px;
+  margin-right: 40px; */
 }
 
 .app__graphTitle{

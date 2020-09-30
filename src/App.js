@@ -9,6 +9,8 @@ import {sortData,prettyPrintStat} from "./util"
 import "leaflet/dist/leaflet.css"
 import {ThemeProvider, createMuiTheme} from '@material-ui/core/styles'
 import PieChart from './PieChart/PieChart'
+import CircleBar from './CircleBarTitle/CircleBar'
+import RadarGraph from './RadarGraph'
 
 
 
@@ -79,7 +81,7 @@ function App() {
     setMapZoom(4)
   })
   }
-  console.log(countryInfo)
+  console.log('******',countryInfo)
   
  //https://disease.sh/v3/covid-19/all
  //https://disease.sh/v3/covid-19/countries/[COUNTRY_CODE]
@@ -156,9 +158,20 @@ function App() {
           </CardContent>
       </Card>
       </div>
+      <div className="app_first_row">
       <Card className="app__bottom__left">
+      
          <PieChart data={countryInfo.todayCases}/>
+         
       </Card>
+      <Card className="app__bottom__left">
+         <CircleBar countries = {tableData}/>
+      </Card>
+      <Card className="app__bottom__left">
+         <RadarGraph countries = {tableData}/>
+      </Card>
+      </div>
+      
     </div>
       
       
