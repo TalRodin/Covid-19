@@ -18,24 +18,25 @@ function ChartLine() {
 
 
         let data=[
-          {name: "cases", value: data_.cases},
-          {name: "recovered", value: data_.recovered},
-          {name: "death", value: data_.deaths},
+          {name: "Cases", value: data_.cases},
+          {name: "Recovered", value: data_.recovered},
+          {name: "Death", value: data_.deaths},
         ]
-        let width = 700;
+        let width = 580;
         let height = Math.min(width, 500);
-        let radius = Math.min(width, height)/2 ;
+        let margin = 40
+        let radius = Math.min(width, height)/2 -margin ;
         let x = width/2;
         let y = height/2;
         return (
           <div>
             <h3 className='pie'>Worldwide Cases, Recovered, Deaths</h3>
-            <svg width='400' height='400' viewBox="100 -100 500 700" >
-              <Pie x={x} y={y} 
+            <svg width='1000' height='700' viewBox="0 -100 500 900" >
+            <Pie x={x} y={y} 
                 radius={radius} 
-                innerRadius={radius * 0.5}
+                innerRadius={radius * 0.67}
                 outerRadius={Math.min(width, height) / 2 - 1}
-                cornerRadius={5}
+                cornerRadius={3}
                 padAngle={.005}
                 data={data} />
             </svg>

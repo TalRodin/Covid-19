@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CirleBar from './Pie';
 import { scaleBand, scaleRadial} from 'd3-scale'
-
+import './CircleBar.css'
 
 // {countries}
 class Circle extends Component {
@@ -22,8 +22,8 @@ class Circle extends Component {
         
         const margins = {top: 100, right: 0, bottom: 0, left: 0}
 
-        let width = 400 - margins.left - margins.right
-        let height = 400 - margins.top - margins.bottom
+        let width = 580;
+        let height = Math.min(width, 500);
         let innerRadius = 100
         let outerRadius = Math.min(width, height) / 2
         // let radius = Math.min(width, height)/2 ;
@@ -41,8 +41,8 @@ class Circle extends Component {
         
         return (
           <div>
-            <h3>Cases by Country</h3>
-            <svg  width={width+ margins.left + margins.right} height={height + margins.top + margins.bottom} >
+            <h3 className='circle'>Cases by Country</h3>
+            <svg width='1000' height='800' viewBox="0 -100 600 800" >
               <CirleBar
                 width={width}
                 height={height}

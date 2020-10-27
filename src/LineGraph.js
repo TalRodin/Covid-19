@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Line} from "react-chartjs-2"
 import numeral from 'numeral'
-
+import './LineGraph.css'
 const options={
     legend:{
         display:false,
@@ -86,13 +86,14 @@ function LineGraph({casesType='cases', ...props}) {
     return (
         <div className={props.className}>
             {data?.length>0 && (
-                <Line data={{
+                <Line height={'300vh'} data={{
                     datasets:[
                     {  data:data,
-                    borderColor: "#5371f9",
-                    borderWidth:"1",
+                    borderColor: "#4e6b8f",
+                    borderWidth:"1.5",
                     // backgroundColor: 'rgba(238,238,238,0.5)',
                     fill: false,
+                    
                     }
                     ]
                 }}

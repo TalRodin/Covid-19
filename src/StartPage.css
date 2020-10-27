@@ -1,0 +1,53 @@
+/* body{
+    perspective: 1000px;
+} */
+.landing_page{
+    height:100vh;
+    background:url('https://cdn.georgeinstitute.org/sites/default/files/styles/width1920_fallback/public/2020-03/covid.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+img{
+    left:50%;
+    top:50%;
+    position:absolute;
+    transform: translate(-50%, -50%);
+}
+
+h1{
+    background: linear-gradient(45deg, #fff,#344e71,#404752);
+    left:50%;
+    top:10%;
+    position:absolute;
+    transform: translate(-50%, -50%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container{
+    width:100vh;
+    height: 100vh;
+    left:50%;
+    top:50%;
+    position:absolute;
+    transform: translate(-50%, -50%);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    /* transform-style: preserve-3d; */
+    height:80vh;
+    width:80vh;
+}
+/* .card:hover{
+    background: transparent;
+    box-shadow:  0 20px 20px rgba(0,0,0,0.2), 0px 0px 50px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 0rem 5rem;
+    border: 1px dotted #d5e2f6;
+} */
+

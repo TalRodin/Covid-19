@@ -48,11 +48,14 @@ function RadarGraph({countries}) {
     console.log('========>>>>>',countries)
     
     return (
-        <div style={{height:'250vh', width: '250vw' }}>
-             <h3>Cases, Recovered, Deaths, Critical</h3>
-             <Radar data={data} width={'300vw'} height={'300vw'} padding={'5px'}/>
+      <>
+        <h3>Cases, Recovered, Deaths, Critical</h3>
+        <div style={{height:'700px', width: '700px', margin:'10px', padding:'60px' }}>
+             
+             <Radar data={data} width={'500px'} height={'500px'} padding={'5px'}/>
        
         </div>
+      </>
     )
 }
 

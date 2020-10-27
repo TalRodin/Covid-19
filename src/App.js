@@ -11,7 +11,7 @@ import {ThemeProvider, createMuiTheme} from '@material-ui/core/styles'
 import PieChart from './PieChart/PieChart'
 import CircleBar from './CircleBarTitle/CircleBar'
 import RadarGraph from './RadarGraph'
-
+import StartPage from './StartPage'
 
 
 function App() {
@@ -95,21 +95,25 @@ function App() {
     }
   })
   return (
+    <>
+    <StartPage/>
     <ThemeProvider theme={theme}>
-    <Paper  style={{height: "240vh"  }}>
+    {/* <Paper  style={{height: "240vh"  }}> */}
     
     <div className="app">
+      
       <div className='app_first_row'>
       <div className="app__left">
-      <Switch 
+      {/* <Switch 
       defaultChecked
       color="default"
       inputProps={{ 'aria-label': 'checkbox with default color' }}
       onChange={()=>setDarkMode(!darkMode)}
-      />
+      /> */}
      
         <div className = "app__header">
-                <h1>COVID-19 TRACKER</h1>
+          
+                
                 <FormControl className="app__dropdown">
                   <Select
                   variant = "outlined"
@@ -149,6 +153,9 @@ function App() {
       />
       
       </div>
+    
+      </div>
+      <div className="app_first_row">
       <Card className="app__right">
           <CardContent >
             <h3>Live Cases by Country</h3>
@@ -159,14 +166,19 @@ function App() {
       </Card>
       </div>
       <div className="app_first_row">
+     
       <Card className="app__bottom__left">
       
          <PieChart data={countryInfo.todayCases}/>
          
       </Card>
+      </div>
+      <div className="app_first_row">
       <Card className="app__bottom__left">
          <CircleBar countries = {tableData}/>
       </Card>
+      </div>
+      <div className="app_first_row">
       <Card className="app__bottom__left">
          <RadarGraph countries = {tableData}/>
       </Card>
@@ -176,8 +188,9 @@ function App() {
       
       
      
-    </Paper>
+    {/* </Paper> */}
     </ThemeProvider>
+    </>
   );
 }
 
