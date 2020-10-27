@@ -180,7 +180,7 @@ function App() {
       </div>
       <div className="app_first_row">
       <Card className="app__bottom__left">
-         <RadarGraph countries = {tableData}/>
+         <RadarGraph countries = {tableData.slice(0,3)}/>
       </Card>
       </div>
       
